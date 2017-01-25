@@ -1,12 +1,10 @@
-__author__ = 'ac'
-
-import datetime
-
 from django.utils import timezone
 from django.test import TestCase
 from django.core.urlresolvers import reverse
-
 from .models import Question
+import datetime
+
+__author__ = 'ac'
 
 
 class QuestionMethodTests(TestCase):
@@ -97,5 +95,3 @@ class QuestionViewTests(TestCase):
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(response.context['latest_question_list'],
                                  ['<Question: Past question 2.>', '<Question: Past question 1.>'])
-
-
